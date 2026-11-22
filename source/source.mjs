@@ -1,4 +1,4 @@
-import { cabinRequest } from './cabin-provider.mjs'
+import { cabinRequest, holdingTerms, presentSeatReceipt } from './cabin-provider.mjs'
 import http from 'node:http'
 import { createHash } from 'node:crypto'
 import { readFile } from 'node:fs/promises'
@@ -84,7 +84,7 @@ function browserPage(response, url, edition, changes, message = '') {
   const label = source.portal.labels
   const fields = ['scope', 'ref', 'value'].map((name, i) =>
     '<label>' + label[i] + '<input required name="' + name + '"></label>').join('')
-  const proofs = [...changes.values()].map(row => [row.scope, row.ref, row.value, row.state, row.receipt])
+  const proofs = [...changes.values()].map(row => presentSeatReceipt(row, edition.streams)).map(row => [row.scope, row.ref, row.value, row.state, row.receipt, row.model, row.expires])
   return html(response, 200,
     '<p>资料版 <output aria-label="资料版">' + quote(edition.edition) + '</output></p>' +
     (message ? '<p role="status">' + quote(message) + '</p>' : '') +
@@ -107,7 +107,8 @@ async function changeForm(request, response, url, edition, changes) {
   if (item.edition !== edition.edition) return html(response, 409, '<p>资料版已更换</p><a href="/desk">返回</a>')
   if (![item.scope, item.ref, item.value].every(Boolean)) return html(response, 422, '<p>资料不全</p>')
   const key = JSON.stringify([item.scope, item.ref])
-  const current = changes.get(key)
+  const prior = changes.get(key)
+  const current = prior && presentSeatReceipt(prior, edition.streams)
   if (source.portal.initialLock) {
     const [stream, scope, reference, status, locked] = source.portal.initialLock
     const row = edition.streams[stream].find(row => (scope === null || row[scope] === item.scope) && row[reference] === item.ref && row[status] === locked)
@@ -115,10 +116,15 @@ async function changeForm(request, response, url, edition, changes) {
   }
   const decision = cabinRequest(edition.streams, changes, item)
   if (decision) return html(response, 409, '<p role="status">' + quote(decision) + '</p><a href="/desk">返回</a>')
-  const exactDraft = current?.value === item.value && current.edition === item.edition
+  const exactDraft = current?.value === item.value
   if (current?.state === 'confirmed') return browserPage(response, url, edition, changes, '已有确认回执')
+  if (item.action === 'release') {
+    if (!exactDraft || !['draft','reviewed'].includes(current.state)) return html(response, 409, '<p>没有可释放的暂留</p>')
+    changes.set(key, { ...current, state: 'released' })
+    return browserPage(response, url, edition, changes, '暂留已释放')
+  }
   if (item.action === 'draft') {
-    changes.set(key, { ...item, state: 'draft', receipt: '' })
+    changes.set(key, { ...item, ...holdingTerms(item, edition.streams), state: 'draft', receipt: '' })
   } else if (item.action === 'review' && exactDraft && current.state === 'draft') {
     changes.set(key, { ...current, state: 'reviewed' })
   } else if (item.action === 'confirm' && exactDraft && current.state === 'reviewed') {

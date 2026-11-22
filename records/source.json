@@ -8,30 +8,92 @@
           [
             "L",
             "P1",
-            "pair1",
+            "group1",
             "adult",
             "aisle"
           ],
           [
             "L",
             "P2",
-            "pair1",
+            "group1",
             "child",
             "window"
           ],
           [
             "L",
             "P3",
-            "single",
+            "group1",
+            "adult",
+            "aisle"
+          ],
+          [
+            "L",
+            "P4",
+            "group1",
+            "child",
+            "window"
+          ],
+          [
+            "L",
+            "P5",
+            "solo",
             "solo",
             "aisle"
           ],
           [
             "M",
             "P1",
-            "single",
-            "solo",
+            "group1",
+            "adult",
             "window"
+          ],
+          [
+            "M",
+            "P2",
+            "group1",
+            "child",
+            "aisle"
+          ],
+          [
+            "M",
+            "P3",
+            "group1",
+            "adult",
+            "window"
+          ],
+          [
+            "M",
+            "P4",
+            "group1",
+            "child",
+            "aisle"
+          ]
+        ],
+        "companions": [
+          [
+            "L",
+            "P2",
+            "P1"
+          ],
+          [
+            "L",
+            "P2",
+            "P3"
+          ],
+          [
+            "L",
+            "P4",
+            "P3"
+          ],
+          [
+            "M",
+            "P2",
+            "P3"
+          ],
+          [
+            "M",
+            "P4",
+            "P1"
           ]
         ],
         "seats": [
@@ -65,7 +127,7 @@
             "2B",
             "2A",
             "aisle",
-            "0"
+            "1"
           ],
           [
             "L",
@@ -79,8 +141,32 @@
             "M",
             "w1",
             "1A",
-            "-",
+            "1B",
             "window",
+            "1"
+          ],
+          [
+            "M",
+            "w1",
+            "1B",
+            "1A",
+            "aisle",
+            "1"
+          ],
+          [
+            "M",
+            "w1",
+            "2A",
+            "2B",
+            "window",
+            "1"
+          ],
+          [
+            "M",
+            "w1",
+            "2B",
+            "2A",
+            "aisle",
             "1"
           ]
         ],
@@ -100,6 +186,87 @@
             "1A",
             "B1",
             "held"
+          ],
+          [
+            "M",
+            "w1",
+            "P1",
+            "1A",
+            "C1",
+            "confirmed"
+          ],
+          [
+            "M",
+            "w1",
+            "P4",
+            "1B",
+            "C2",
+            "confirmed"
+          ],
+          [
+            "M",
+            "w1",
+            "P3",
+            "2A",
+            "C3",
+            "confirmed"
+          ],
+          [
+            "M",
+            "w1",
+            "P2",
+            "2B",
+            "C4",
+            "confirmed"
+          ]
+        ],
+        "clock": [
+          [
+            "610"
+          ]
+        ],
+        "policy": [
+          [
+            "L",
+            "4"
+          ],
+          [
+            "M",
+            "3"
+          ]
+        ],
+        "sent": [
+          [
+            "M",
+            "group1",
+            "notice-M",
+            "P1",
+            "1A",
+            "C1"
+          ],
+          [
+            "M",
+            "group1",
+            "notice-M",
+            "P4",
+            "1B",
+            "C2"
+          ],
+          [
+            "M",
+            "group1",
+            "notice-M",
+            "P3",
+            "2A",
+            "C3"
+          ],
+          [
+            "M",
+            "group1",
+            "notice-M",
+            "P2",
+            "2B",
+            "C4"
           ]
         ]
       }
@@ -111,30 +278,92 @@
           [
             "L",
             "P1",
-            "pair1",
+            "group1",
             "adult",
             "aisle"
           ],
           [
             "L",
             "P2",
-            "pair1",
+            "group1",
             "child",
             "window"
           ],
           [
             "L",
             "P3",
-            "single",
+            "group1",
+            "adult",
+            "aisle"
+          ],
+          [
+            "L",
+            "P4",
+            "group1",
+            "child",
+            "window"
+          ],
+          [
+            "L",
+            "P5",
+            "solo",
             "solo",
             "aisle"
           ],
           [
             "M",
             "P1",
-            "single",
-            "solo",
+            "group1",
+            "adult",
             "window"
+          ],
+          [
+            "M",
+            "P2",
+            "group1",
+            "child",
+            "aisle"
+          ],
+          [
+            "M",
+            "P3",
+            "group1",
+            "adult",
+            "window"
+          ],
+          [
+            "M",
+            "P4",
+            "group1",
+            "child",
+            "aisle"
+          ]
+        ],
+        "companions": [
+          [
+            "L",
+            "P2",
+            "P1"
+          ],
+          [
+            "L",
+            "P2",
+            "P3"
+          ],
+          [
+            "L",
+            "P4",
+            "P3"
+          ],
+          [
+            "M",
+            "P2",
+            "P3"
+          ],
+          [
+            "M",
+            "P4",
+            "P1"
           ]
         ],
         "seats": [
@@ -158,7 +387,7 @@
             "L",
             "v2",
             "2A",
-            "1A",
+            "1A,3A",
             "window",
             "1"
           ],
@@ -167,6 +396,14 @@
             "v2",
             "2B",
             "1B",
+            "aisle",
+            "1"
+          ],
+          [
+            "L",
+            "v2",
+            "3A",
+            "2A",
             "aisle",
             "1"
           ],
@@ -182,8 +419,32 @@
             "M",
             "w1",
             "1A",
-            "-",
+            "1B",
             "window",
+            "1"
+          ],
+          [
+            "M",
+            "w1",
+            "1B",
+            "1A",
+            "aisle",
+            "1"
+          ],
+          [
+            "M",
+            "w1",
+            "2A",
+            "2B",
+            "window",
+            "1"
+          ],
+          [
+            "M",
+            "w1",
+            "2B",
+            "2A",
+            "aisle",
             "1"
           ]
         ],
@@ -207,10 +468,377 @@
           [
             "L",
             "v2",
-            "P3",
+            "P5",
             "4B",
-            "C1",
+            "E1",
             "held"
+          ],
+          [
+            "M",
+            "w1",
+            "P1",
+            "1A",
+            "C1",
+            "confirmed"
+          ],
+          [
+            "M",
+            "w1",
+            "P4",
+            "1B",
+            "C2",
+            "confirmed"
+          ],
+          [
+            "M",
+            "w1",
+            "P3",
+            "2A",
+            "C3",
+            "confirmed"
+          ],
+          [
+            "M",
+            "w1",
+            "P2",
+            "2B",
+            "C4",
+            "confirmed"
+          ]
+        ],
+        "clock": [
+          [
+            "613"
+          ]
+        ],
+        "policy": [
+          [
+            "L",
+            "4"
+          ],
+          [
+            "M",
+            "3"
+          ]
+        ],
+        "sent": [
+          [
+            "M",
+            "group1",
+            "notice-M",
+            "P1",
+            "1A",
+            "C1"
+          ],
+          [
+            "M",
+            "group1",
+            "notice-M",
+            "P4",
+            "1B",
+            "C2"
+          ],
+          [
+            "M",
+            "group1",
+            "notice-M",
+            "P3",
+            "2A",
+            "C3"
+          ],
+          [
+            "M",
+            "group1",
+            "notice-M",
+            "P2",
+            "2B",
+            "C4"
+          ]
+        ]
+      }
+    },
+    {
+      "edition": "r3",
+      "streams": {
+        "travelers": [
+          [
+            "L",
+            "P1",
+            "group1",
+            "adult",
+            "aisle"
+          ],
+          [
+            "L",
+            "P2",
+            "group1",
+            "child",
+            "window"
+          ],
+          [
+            "L",
+            "P3",
+            "group1",
+            "adult",
+            "aisle"
+          ],
+          [
+            "L",
+            "P4",
+            "group1",
+            "child",
+            "window"
+          ],
+          [
+            "L",
+            "P5",
+            "solo",
+            "solo",
+            "aisle"
+          ],
+          [
+            "M",
+            "P1",
+            "group1",
+            "adult",
+            "window"
+          ],
+          [
+            "M",
+            "P2",
+            "group1",
+            "child",
+            "aisle"
+          ],
+          [
+            "M",
+            "P3",
+            "group1",
+            "adult",
+            "window"
+          ],
+          [
+            "M",
+            "P4",
+            "group1",
+            "child",
+            "aisle"
+          ]
+        ],
+        "companions": [
+          [
+            "L",
+            "P2",
+            "P1"
+          ],
+          [
+            "L",
+            "P2",
+            "P3"
+          ],
+          [
+            "L",
+            "P4",
+            "P3"
+          ],
+          [
+            "M",
+            "P2",
+            "P3"
+          ],
+          [
+            "M",
+            "P4",
+            "P1"
+          ]
+        ],
+        "seats": [
+          [
+            "L",
+            "v2",
+            "1A",
+            "2A",
+            "window",
+            "0"
+          ],
+          [
+            "L",
+            "v2",
+            "1B",
+            "2B",
+            "aisle",
+            "1"
+          ],
+          [
+            "L",
+            "v2",
+            "2A",
+            "1A,3A",
+            "window",
+            "1"
+          ],
+          [
+            "L",
+            "v2",
+            "2B",
+            "1B",
+            "aisle",
+            "1"
+          ],
+          [
+            "L",
+            "v2",
+            "3A",
+            "2A",
+            "aisle",
+            "0"
+          ],
+          [
+            "L",
+            "v2",
+            "4B",
+            "-",
+            "aisle",
+            "1"
+          ],
+          [
+            "M",
+            "w1",
+            "1A",
+            "1B",
+            "window",
+            "1"
+          ],
+          [
+            "M",
+            "w1",
+            "1B",
+            "1A",
+            "aisle",
+            "1"
+          ],
+          [
+            "M",
+            "w1",
+            "2A",
+            "2B",
+            "window",
+            "1"
+          ],
+          [
+            "M",
+            "w1",
+            "2B",
+            "2A",
+            "aisle",
+            "1"
+          ]
+        ],
+        "draft": [
+          [
+            "L",
+            "v2",
+            "P1",
+            "1B",
+            "A2",
+            "confirmed"
+          ],
+          [
+            "L",
+            "v1",
+            "P2",
+            "1A",
+            "B1",
+            "expired"
+          ],
+          [
+            "L",
+            "v2",
+            "P5",
+            "4B",
+            "E1",
+            "held"
+          ],
+          [
+            "M",
+            "w1",
+            "P1",
+            "1A",
+            "C1",
+            "confirmed"
+          ],
+          [
+            "M",
+            "w1",
+            "P4",
+            "1B",
+            "C2",
+            "confirmed"
+          ],
+          [
+            "M",
+            "w1",
+            "P3",
+            "2A",
+            "C3",
+            "confirmed"
+          ],
+          [
+            "M",
+            "w1",
+            "P2",
+            "2B",
+            "C4",
+            "confirmed"
+          ]
+        ],
+        "clock": [
+          [
+            "618"
+          ]
+        ],
+        "policy": [
+          [
+            "L",
+            "4"
+          ],
+          [
+            "M",
+            "3"
+          ]
+        ],
+        "sent": [
+          [
+            "M",
+            "group1",
+            "notice-M",
+            "P1",
+            "1A",
+            "C1"
+          ],
+          [
+            "M",
+            "group1",
+            "notice-M",
+            "P4",
+            "1B",
+            "C2"
+          ],
+          [
+            "M",
+            "group1",
+            "notice-M",
+            "P3",
+            "2A",
+            "C3"
+          ],
+          [
+            "M",
+            "group1",
+            "notice-M",
+            "P2",
+            "2B",
+            "C4"
           ]
         ]
       }
@@ -236,6 +864,10 @@
       [
         "confirm",
         "逐人确认"
+      ],
+      [
+        "release",
+        "释放暂留"
       ]
     ],
     "initialLock": [
