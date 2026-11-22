@@ -24,7 +24,7 @@ test('浏览器能读取分页资料并识别过期暂存', async t => {
   assert.equal(oldEdition, 'r1')
   await fetch(root + '/control?edition=r2', {method:'POST'})
   const labels = ["航段", "订位人号", "座号"]
-  for (const [i, label] of labels.entries()) await page.getByLabel(label).fill('local-' + i)
+  for (const [i, label] of labels.entries()) await page.getByLabel(label).fill(['L','P2','2A'][i])
   await page.getByRole('button',{name: "暂留", exact:true}).click()
   assert.match(await page.locator('body').textContent(), /资料版已更换/)
   await page.goto(root + '/desk?view=' + "seats")
@@ -36,7 +36,7 @@ test('浏览器能读取分页资料并识别过期暂存', async t => {
     await next.click()
   }
   assert.ok(cells.includes("v2"))
-  for (const [i, label] of labels.entries()) await page.getByLabel(label).fill('local-' + i)
+  for (const [i, label] of labels.entries()) await page.getByLabel(label).fill(['L','P2','2A'][i])
   await page.getByRole('button',{name: "暂留", exact:true}).click()
   assert.match(await page.getByRole('table',{name:'本次门户操作'}).textContent(), /draft/)
 })

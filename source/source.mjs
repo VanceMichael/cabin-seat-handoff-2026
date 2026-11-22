@@ -1,3 +1,4 @@
+import { cabinRequest } from './cabin-provider.mjs'
 import http from 'node:http'
 import { createHash } from 'node:crypto'
 import { readFile } from 'node:fs/promises'
@@ -112,6 +113,8 @@ async function changeForm(request, response, url, edition, changes) {
     const row = edition.streams[stream].find(row => (scope === null || row[scope] === item.scope) && row[reference] === item.ref && row[status] === locked)
     if (row) return browserPage(response, url, edition, changes, '该记录已经由业务方确认')
   }
+  const decision = cabinRequest(edition.streams, changes, item)
+  if (decision) return html(response, 409, '<p role="status">' + quote(decision) + '</p><a href="/desk">返回</a>')
   const exactDraft = current?.value === item.value && current.edition === item.edition
   if (current?.state === 'confirmed') return browserPage(response, url, edition, changes, '已有确认回执')
   if (item.action === 'draft') {
