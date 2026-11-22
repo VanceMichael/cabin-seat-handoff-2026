@@ -5,9 +5,10 @@ export function cabinRequest(streams, changes, item) {
   const chosen = streams.seats.find(r => r[0] === item.scope && r[2] === item.value)
   if (!chosen || chosen[5] !== '1') return '座位不可办理'
   const frozenOccupant = streams.draft.find(r =>
-    r[0] === item.scope && r[5] === 'confirmed' && r[3] === item.value && r[2] !== item.ref
+    r[0] === item.scope && r[3] === item.value && r[2] !== item.ref &&
+    (r[5] === 'confirmed' || (r[5] === 'held' && r[1] === chosen[1] && Number(streams.clock[0][0]) < Number(r[6])))
   )
-  if (frozenOccupant) return '此座已由另一旅客确认'
+  if (frozenOccupant) return '此座已由另一旅客暂留或确认'
   for (const row of changes.values()) {
     if (row.scope !== item.scope || row.ref === item.ref || row.value !== item.value) continue
     const actual = presentSeatReceipt(row, streams)
